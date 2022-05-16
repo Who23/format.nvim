@@ -85,7 +85,7 @@ function M.format(cmd, options, callback)
     end
 
     function F.run_job(cmd)
-        local job = expand_cmd(cmd, tempfile_name)
+        local job = expand_cmd(cmd, vim.fn.fnameescape(tempfile_name))
         local job_id = vim.fn.jobstart(job, {
             on_stderr = F.on_event,
             on_stdout = F.on_event,
